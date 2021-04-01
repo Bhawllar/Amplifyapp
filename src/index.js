@@ -1,17 +1,58 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+document.write( '<!DOCTYPE html>\n' );
+document.write( '<html>\n' );
+document.write( '<head>\n' );
+document.write( '    <meta charset=\"UTF-8\">\n' );
+document.write( '    <title>Hello World</title>\n' );
+document.write( '    <!-- Add some CSS to change client UI -->\n' );
+document.write( '    <style>\n' );
+document.write( '    body {\n' );
+document.write( '        background-color: #232F3E;\n' );
+document.write( '        }\n' );
+document.write( '    label, button {\n' );
+document.write( '        color: #FF9900;\n' );
+document.write( '        font-family: Arial, Helvetica, sans-serif;\n' );
+document.write( '        font-size: 20px;\n' );
+document.write( '        margin-left: 40px;\n' );
+document.write( '        }\n' );
+document.write( '     input {\n' );
+document.write( '        color: #232F3E;\n' );
+document.write( '        font-family: Arial, Helvetica, sans-serif;\n' );
+document.write( '        font-size: 20px;\n' );
+document.write( '        margin-left: 20px;\n' );
+document.write( '        }\n' );
+document.write( '    </style>\n' );
+document.write( '    <script>\n' );
+document.write( '        // define the callAPI function that takes a first name and last name as parameters\n' );
+document.write( '        var callAPI = (firstName,lastName)=>{\n' );
+document.write( '            // instantiate a headers object\n' );
+document.write( '            var myHeaders = new Headers();\n' );
+document.write( '            // add content type header to object\n' );
+document.write( '            myHeaders.append(\"Content-Type\", \"application/json\");\n' );
+document.write( '            // using built in JSON utility package turn object to string and store in a variable\n' );
+document.write( '            var raw = JSON.stringify({\"firstName\":firstName,\"lastName\":lastName});\n' );
+document.write( '            // create a JSON object with parameters for API call and store in a variable\n' );
+document.write( '            var requestOptions = {\n' );
+document.write( '                method: \'POST\',\n' );
+document.write( '                headers: myHeaders,\n' );
+document.write( '                body: raw,\n' );
+document.write( '                redirect: \'follow\'\n' );
+document.write( '            };\n' );
+document.write( '            // make API call with parameters and use promises to get response\n' );
+document.write( '            fetch(\"https://o82lgcr80j.execute-api.us-west-2.amazonaws.com/dev\", requestOptions)\n' );
+document.write( '            .then(response => response.text())\n' );
+document.write( '            .then(result => alert(JSON.parse(result).body))\n' );
+document.write( '            .catch(error => console.log(\'error\', error));\n' );
+document.write( '        }\n' );
+document.write( '    </script>\n' );
+document.write( '</head>\n' );
+document.write( '<body>\n' );
+document.write( '    <form>\n' );
+document.write( '        <label>First Name :</label>\n' );
+document.write( '        <input type=\"text\" id=\"fName\">\n' );
+document.write( '        <label>Last Name :</label>\n' );
+document.write( '        <input type=\"text\" id=\"lName\">\n' );
+document.write( '        <!-- set button onClick method to call function we defined passing input values as parameters -->\n' );
+document.write( '        <button type=\"button\" onclick=\"callAPI(document.getElementById(\'fName\').value,document.getElementById(\'lName\').value)\">Call API</button>\n' );
+document.write( '    </form>\n' );
+document.write( '</body>\n' );
+document.write( '</html>' );
