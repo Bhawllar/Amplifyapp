@@ -1,3 +1,6 @@
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
+Amplify.configure(config);
 document.write( '<!DOCTYPE html>\n' );
 document.write( '<html>\n' );
 document.write( '<head>\n' );
